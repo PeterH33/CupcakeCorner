@@ -6,6 +6,9 @@
 //
 //NOTE This section includes first instance of using URLSession
 
+//Day 76 challenge, accessibility
+//The check out view in Cupcake Corner uses an image and loading spinner that don’t add anything to the UI, so find a way to make the screenreader not read them out.
+
 import SwiftUI
 
 
@@ -53,8 +56,10 @@ struct CheckoutView: View {
                     image
                         .resizable()
                         .scaledToFit()
+                        .accessibilityHidden(true)
                 } placeholder: {
                     ProgressView()
+                        .accessibilityHidden(true)
                 }
                 .frame(height: 233)
                 
