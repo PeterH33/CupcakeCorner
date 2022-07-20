@@ -21,7 +21,7 @@ struct ContentView: View {
                         ForEach(Order.types.indices) {
                             Text(Order.types[$0])
                         }
-                    }.pickerStyle(.segmented)//Picker style needs to have like a short wheel, that would be nice. Segmented works well for anything 4 or under, I do not like th break out default
+                    }.pickerStyle(.segmented)//Picker style needs to have like a short wheel, that would be nice. Segmented works well for anything 4 or under, I do not like the break out default
                    
 
                     Stepper("Number of cakes: \(order.quantity)", value: $order.quantity, in: 3...20)

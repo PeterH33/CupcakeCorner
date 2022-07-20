@@ -32,7 +32,7 @@ struct CheckoutView: View {
         let url = URL(string: "https://reqres.in/api/cupcakes")! //this site is good for testing network sends
         var request = URLRequest(url: url)
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.httpMethod = "POST" //Comment this line out to test for theoretical netowkr fails
+        request.httpMethod = "POST" //Comment this line out to test for theoretical network fails
         
         do{
             let(data, _) = try await URLSession.shared.upload(for: request, from: encoded)

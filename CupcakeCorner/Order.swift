@@ -38,10 +38,10 @@ class Order: ObservableObject, Codable{
         city = try container.decode(String.self, forKey: .city)
         zip = try container.decode(String.self, forKey: .zip)
     }
-    //NOTE: For a challenge it is recomended changing this to a struct and then wrapping it in a class to pass things around like in the last program. I do not really care for that logic in this case, but you can skip this codable conformance above when doing things that way. This requires a bunch of rewriting, but it is easier, refer back to the habit builder app for the way to do this and consider wrapping structs in classes in the future for handling data that has to be shared how a class is shared. 
+    //NOTE: For a challenge it is recommended changing this to a struct and then wrapping it in a class to pass things around like in the last program. I do not really care for that logic in this case, but you can skip this codable conformance above when doing things that way. This requires a bunch of rewriting, but it is easier, refer back to the habit builder app for the way to do this and consider wrapping structs in classes in the future for handling data that has to be shared how a class is shared.
     //****************** Codable conformance ends ****************
     
-    //adding that required init above for codable conformance kills the default initiializer, you need to remake it like this
+    //adding that required init above for codable conformance kills the default initializer, you need to remake it like this
     init() {} // simple line to say that you can make an empty instance of the class that uses all of the defaults.
     static let types = ["Vanilla", "Strawberry", "Chocolate", "Rainbow"]
     
@@ -49,7 +49,7 @@ class Order: ObservableObject, Codable{
     @Published var quantity = 0
     
     @Published var specialRequestEnabled = false {
-        didSet{ //This will toggle over the dependant states to false as well whenever special requests is turned off, reaosonable logic. Very neat implementation to track when something happens like this.
+        didSet{ //This will toggle over the dependent states to false as well whenever special requests is turned off, reasonable logic. Very neat implementation to track when something happens like this.
             if specialRequestEnabled == false{
                 extraFrosting = false
                 addSprinkles = false}
